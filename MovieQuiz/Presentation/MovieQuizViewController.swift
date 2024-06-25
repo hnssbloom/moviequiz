@@ -72,8 +72,8 @@ final class MovieQuizViewController: UIViewController {
                 buttonText: "они велят мне начать охоту на беременных голубей")
             show(quiz: viewModel)
         } else{
-            imageView.layer.borderWidth = 0
-            
+//            imageView.layer.borderWidth = 0
+//сначала я добавил 'imageView.layer.borderWidth = 0' сюда, но заметил, что при повторном прохождении квиза, рамка остаётся такой, какой она была, когда пользователь ответил на последний вопрос. так что я перенёс этот метод на строку 127.
             currentQuestionIndex+=1
             
             let nextQuestion = questions[currentQuestionIndex]
@@ -124,6 +124,7 @@ final class MovieQuizViewController: UIViewController {
     }
     
     private func show(quiz step: QuizStepViewModel) {
+        imageView.layer.borderWidth = 0
         imageView.image = step.image
         textLabel.text = step.question
         counterLabel.text = step.questionNumber
