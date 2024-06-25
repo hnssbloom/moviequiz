@@ -65,13 +65,15 @@ final class MovieQuizViewController: UIViewController {
     
     private func showNextQuestionOrResults() {
         if currentQuestionIndex == questions.count - 1 {
-            let text = "Ваш результат: \(correctAnswers)/10" // 1
-            let viewModel = QuizResultsViewModel( // 2
+            let text = "Ваш результат: \(correctAnswers)/10"
+            let viewModel = QuizResultsViewModel(
                 title: "Голоса в голове...",
                 text: text,
                 buttonText: "они велят мне начать охоту на беременных голубей")
             show(quiz: viewModel)
         } else{
+            imageView.layer.borderWidth = 0
+            
             currentQuestionIndex+=1
             
             let nextQuestion = questions[currentQuestionIndex]
